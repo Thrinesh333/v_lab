@@ -1,0 +1,29 @@
+{
+  "name": "virtual-lab-pc-assembly",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n \"api,web\" -c \"blue,green\" \"npm --workspace=apps/api run dev\" \"npm --workspace=apps/web run dev\"",
+    "dev:api": "npm --workspace=apps/api run dev",
+    "dev:web": "npm --workspace=apps/web run dev",
+    "build": "npm run --workspaces --if-present build",
+    "build:shared": "npm --workspace=packages/shared run build",
+    "build:api": "npm --workspace=apps/api run build",
+    "build:web": "npm --workspace=apps/web run build",
+    "test": "npm run --workspaces --if-present test",
+    "test:shared": "npm --workspace=packages/shared run test",
+    "test:api": "npm --workspace=apps/api run test",
+    "test:web": "npm --workspace=apps/web run test",
+    "lint": "npm run --workspaces --if-present lint",
+    "seed": "npm --workspace=apps/api run seed"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.0.7",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  }
+}

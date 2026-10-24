@@ -1,0 +1,33 @@
+[
+  {
+    "code": "FAULT_STANDOFF_SHORT",
+    "title": "Chassis Standoff Electrical Short",
+    "description": "An extra metal standoff left under the motherboard touches bare copper solder traces on the back of the PCB.",
+    "symptoms": [
+      "PSU clicks off immediately after power button is pressed (OCP/SCP trip)",
+      "Zero fan spin or momentary flash of RGB LEDs"
+    ],
+    "solution": "Remove motherboard and unscrew redundant metal standoffs that do not align with motherboard mounting screw holes."
+  },
+  {
+    "code": "FAULT_RAM_SEATING",
+    "title": "Unseated Memory Stick",
+    "description": "One RAM stick was pushed into the slot but only one end latched, leaving pins partially disconnected.",
+    "symptoms": [
+      "Continuous repeated beep code or 3 beeps",
+      "Motherboard DRAM diagnostic LED solid amber/yellow",
+      "Fans spin at 100% with no video display"
+    ],
+    "solution": "Release latches, remove memory module, align notch, and apply balanced pressure at both ends until audible clicks are heard."
+  },
+  {
+    "code": "FAULT_CPU_FAN_HEADER",
+    "title": "Cooler Fan Plugged into SYS_FAN",
+    "description": "The CPU cooler fan was connected to a chassis fan header (SYS_FAN) instead of the dedicated CPU_FAN header.",
+    "symptoms": [
+      "UEFI error message on screen: 'CPU Fan Speed Error detected. Press F1 to Run SETUP'",
+      "System pauses boot sequence to prevent thermal runaway"
+    ],
+    "solution": "Move 4-pin PWM connector from SYS_FAN1 to the dedicated CPU_FAN header located adjacent to the CPU socket."
+  }
+]

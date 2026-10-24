@@ -1,0 +1,44 @@
+[
+  {
+    "id": "quiz-cpu-socket-1",
+    "category": "cpu",
+    "prompt": "What happens if an LGA1700 processor is forced into an AM5 motherboard socket?",
+    "options": [
+      "The system will downclock to compatibility mode",
+      "The pins on the AM5 socket will be crushed and permanently damaged",
+      "The computer boots but memory channels are disabled",
+      "The UEFI BIOS will flash an error code on screen"
+    ],
+    "correctIndex": 1,
+    "explanation": "LGA sockets feature delicate spring contact pins on the motherboard. Forcing an incompatible package will permanently crush the socket pins.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "quiz-ram-slots-2",
+    "category": "ram",
+    "prompt": "When installing two sticks of RAM on a standard 4-slot motherboard, which slot configuration is recommended by manufacturers?",
+    "options": [
+      "Slots 1 and 2 (A1 and A2)",
+      "Slots 3 and 4 (B1 and B2)",
+      "Slots 2 and 4 (A2 and B2)",
+      "Any arbitrary pair of adjacent slots"
+    ],
+    "correctIndex": 2,
+    "explanation": "Modern daisy-chain memory trace topology terminates at the end of each trace (slots 2 and 4 / A2 and B2). Using these slots minimizes electrical stub reflections.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "quiz-psu-eps-3",
+    "category": "psu",
+    "prompt": "What is the consequence of forgetting to plug in the 8-pin EPS 12V cable to the top corner of the motherboard?",
+    "options": [
+      "The computer will run at reduced CPU power",
+      "Fans and LEDs may turn on, but the CPU receives no VCore power and system cannot POST",
+      "Only integrated graphics will be disabled",
+      "Storage drives will not spin up"
+    ],
+    "correctIndex": 1,
+    "explanation": "The 24-pin ATX connector powers chipset, RAM, and PCIe slots, while the 8-pin EPS specifically feeds the CPU VRM stages. Without EPS, the CPU is completely unpowered.",
+    "difficulty": "medium"
+  }
+]

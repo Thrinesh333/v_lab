@@ -1,0 +1,82 @@
+[
+  {
+    "stepId": "STEP_1_STANDOFFS",
+    "title": "Install Motherboard Standoffs",
+    "category": "cabinet",
+    "instruction": "Thread brass motherboard standoffs into the chassis tray matching your motherboard form factor (ATX).",
+    "hint": "Skipping standoffs will cause direct contact between motherboard solder points and metal chassis, causing an electrical short circuit.",
+    "requiredSlot": "cabinet_standoffs"
+  },
+  {
+    "stepId": "STEP_2_CPU_SEAT",
+    "title": "Unlatch Socket & Seat CPU",
+    "category": "cpu",
+    "instruction": "Lift the CPU retention arm, align the golden triangle marker on the processor with the socket corner notch, and lower into place with zero insertion force.",
+    "hint": "Never force or slide the CPU across pins. Close the retention load plate and latch the lever down securely.",
+    "requiredSlot": "cpu_socket"
+  },
+  {
+    "stepId": "STEP_3_RAM_INSTALL",
+    "title": "Install RAM in Dual-Channel Slots",
+    "category": "ram",
+    "instruction": "Open the locking clips on memory slots DIMM 2 and DIMM 4 (A2 and B2). Align the module key notch and press firmly on both ends until latches click.",
+    "hint": "Populating A2 and B2 first ensures optimal signal reflection impedance for high-speed memory stability.",
+    "requiredSlot": "dimm_slots"
+  },
+  {
+    "stepId": "STEP_4_NVME_INSTALL",
+    "title": "Mount M.2 NVMe SSD",
+    "category": "storage",
+    "instruction": "Insert M.2 NVMe SSD at a 30-degree angle into the primary CPU-connected M.2 slot, push down gently, and tighten the mounting screw.",
+    "hint": "Remove any protective blue plastic film from motherboard heatsink thermal pads before reattaching the heatsink.",
+    "requiredSlot": "m2_slot_1"
+  },
+  {
+    "stepId": "STEP_5_THERMAL_PASTE",
+    "title": "Apply Thermal Compound",
+    "category": "thermal_paste",
+    "instruction": "Dispense a pea-sized dot (~4-5mm diameter) of non-conductive thermal paste onto the center of the CPU heat spreader.",
+    "hint": "The mounting pressure of the cooler baseplate will spread the paste evenly across the contact area.",
+    "requiredSlot": "cpu_surface"
+  },
+  {
+    "stepId": "STEP_6_COOLER_MOUNT",
+    "title": "Mount CPU Cooler & Connect Fan Header",
+    "category": "cooler",
+    "instruction": "Place cooler baseplate onto CPU, tighten retention screws in an alternating diagonal cross pattern, and connect 4-pin PWM cable to CPU_FAN header.",
+    "hint": "Connecting to SYS_FAN instead of CPU_FAN may trigger a BIOS 'CPU Fan Speed Error' on first boot.",
+    "requiredSlot": "cooler_bracket"
+  },
+  {
+    "stepId": "STEP_7_MOBO_IN_CASE",
+    "title": "Secure Motherboard Into Chassis",
+    "category": "motherboard",
+    "instruction": "Install rear I/O shield (if not integrated), slide motherboard ports into shield opening, align with standoffs, and tighten screws evenly.",
+    "hint": "Do not overtighten motherboard screws; snug firmness is sufficient to avoid cracking PCB traces.",
+    "requiredSlot": "case_tray"
+  },
+  {
+    "stepId": "STEP_8_PSU_INSTALL",
+    "title": "Mount PSU & Route Primary Power Cables",
+    "category": "psu",
+    "instruction": "Slide PSU into bottom chassis shroud with fan facing intake vent. Connect 24-pin ATX Main, 8-pin EPS 12V CPU, and PCIe cables.",
+    "hint": "The 8-pin EPS cable feeds direct power to VRMs. Forgetting this cable results in spinning fans but no CPU initialization or POST.",
+    "requiredSlot": "psu_bay"
+  },
+  {
+    "stepId": "STEP_9_GPU_INSTALL",
+    "title": "Install Dedicated GPU & Auxiliary Power",
+    "category": "gpu",
+    "instruction": "Remove case expansion slot covers, insert GPU into top PCIe 4.0/5.0 x16 slot until latch clicks, secure chassis bracket screws, and plug in PCIe power cables.",
+    "hint": "Always plug your monitor HDMI/DisplayPort cable directly into the GPU, NOT the motherboard video outputs.",
+    "requiredSlot": "pcie_x16_slot_1"
+  },
+  {
+    "stepId": "STEP_10_FIRST_BOOT",
+    "title": "Power Switch & POST Diagnostic Test",
+    "category": "psu",
+    "instruction": "Flip rear PSU rocker switch to 'I' (On) and press front panel power switch. Observe motherboard Q-LED diagnostic indicators and listen for boot beep code.",
+    "hint": "A single short beep indicates successful POST and handoff to UEFI firmware.",
+    "requiredSlot": "power_switch"
+  }
+]

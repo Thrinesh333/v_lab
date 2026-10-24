@@ -1,0 +1,51 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: vlab-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: vlab
+      POSTGRES_PASSWORD: vlabpassword
+      POSTGRES_DB: vlab_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - vlab_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vlab -d vlab_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: vlab-api
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: "file:./dev.db"
+      JWT_SECRET: "vlab_production_jwt_secret_key_change_me_when_deploying"
+      JWT_EXPIRES_IN: "7d"
+      CORS_ORIGIN: "http://localhost:5173"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: vlab-web
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+volumes:
+  vlab_pgdata:

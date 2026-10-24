@@ -1,0 +1,44 @@
+[
+  {
+    "ruleId": "RULE_CPU_SOCKET_MATCH",
+    "severity": "error",
+    "category": "compatibility",
+    "description": "CPU socket must match the motherboard socket specification.",
+    "explanation": "Attempting to install an incompatible CPU into a mismatched socket will physically bend pins or damage the motherboard socket."
+  },
+  {
+    "ruleId": "RULE_RAM_TYPE_MATCH",
+    "severity": "error",
+    "category": "compatibility",
+    "description": "RAM generation (DDR4 vs DDR5) must match the motherboard memory slots.",
+    "explanation": "DDR4 and DDR5 memory modules have different physical notch positions and electrical pinouts; they cannot be interchanged."
+  },
+  {
+    "ruleId": "RULE_COOLER_BRACKET_MATCH",
+    "severity": "error",
+    "category": "compatibility",
+    "description": "CPU cooler mounting bracket must support the motherboard socket.",
+    "explanation": "Cooler standoff mounting patterns differ between socket designs (e.g. LGA1700 vs AM5)."
+  },
+  {
+    "ruleId": "RULE_PSU_WATTAGE_HEADROOM",
+    "severity": "warning",
+    "category": "power",
+    "description": "Total system estimated power consumption should not exceed 80% of rated PSU wattage.",
+    "explanation": "Modern GPUs and CPUs have transient power spikes. Operating near 100% capacity triggers overcurrent protection (OCP) shutdowns."
+  },
+  {
+    "ruleId": "RULE_THERMAL_PASTE_REQUIRED",
+    "severity": "error",
+    "category": "thermal",
+    "description": "Thermal paste must be applied between CPU and cooler prior to mounting.",
+    "explanation": "Without thermal paste, air gaps trap heat, leading to rapid CPU thermal throttling within seconds and potential automatic thermal shutdown."
+  },
+  {
+    "ruleId": "RULE_GPU_CABINET_CLEARANCE",
+    "severity": "error",
+    "category": "physical",
+    "description": "GPU physical length cannot exceed maximum chassis GPU clearance.",
+    "explanation": "The graphics card will physically collide with front case intake fans or radiator brackets if it is too long."
+  }
+]

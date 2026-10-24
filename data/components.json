@@ -1,0 +1,161 @@
+[
+  {
+    "id": "cpu-intel-13700k",
+    "category": "cpu",
+    "name": "Intel Core i7-13700K",
+    "brand": "Intel",
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 16,
+      "threads": 24,
+      "baseClockGhz": 3.4,
+      "boostClockGhz": 5.4,
+      "tdpWatts": 125,
+      "integratedGraphics": true
+    },
+    "description": "High performance 13th Gen desktop processor with hybrid performance and efficient cores architecture.",
+    "whyItMatters": "The CPU is the central brain executing logic and instructions. The socket type determines which motherboards are physically compatible."
+  },
+  {
+    "id": "cpu-amd-7800x3d",
+    "category": "cpu",
+    "name": "AMD Ryzen 7 7800X3D",
+    "brand": "AMD",
+    "specs": {
+      "socket": "AM5",
+      "cores": 8,
+      "threads": 16,
+      "baseClockGhz": 4.2,
+      "boostClockGhz": 5.0,
+      "tdpWatts": 120,
+      "integratedGraphics": true
+    },
+    "description": "Zen 4 architecture processor with 3D V-Cache technology tailored for high-speed computation and low latency gaming.",
+    "whyItMatters": "AM5 is a Land Grid Array socket that requires DDR5 memory and an AM5-compatible cooler bracket."
+  },
+  {
+    "id": "mobo-asus-z790-p",
+    "category": "motherboard",
+    "name": "ASUS Prime Z790-P WiFi",
+    "brand": "ASUS",
+    "specs": {
+      "formFactor": "ATX",
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "memoryType": "DDR5",
+      "ramSlots": 4,
+      "maxRamGb": 128,
+      "pcie16Slots": 1,
+      "m2Slots": 3,
+      "sataPorts": 4
+    },
+    "description": "Full ATX LGA1700 motherboard designed for Intel 12th/13th/14th Gen processors with DDR5 memory support.",
+    "whyItMatters": "The motherboard interconnects all system components, hosts power delivery circuitry (VRMs), and dictates slot expansion capabilities."
+  },
+  {
+    "id": "ram-corsair-ddr5-32gb",
+    "category": "ram",
+    "name": "Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000",
+    "brand": "Corsair",
+    "specs": {
+      "type": "DDR5",
+      "capacityGb": 32,
+      "speedMhz": 6000,
+      "modules": 2,
+      "casLatency": 36,
+      "voltage": 1.35
+    },
+    "description": "Dual-channel high-speed DDR5 memory kit with aluminium heat spreaders.",
+    "whyItMatters": "RAM holds active volatile data for instantaneous CPU access. Dual-channel configurations double bandwidth when installed in designated slots (A2/B2)."
+  },
+  {
+    "id": "storage-samsung-980pro-1tb",
+    "category": "storage",
+    "name": "Samsung 980 Pro 1TB NVMe M.2 SSD",
+    "brand": "Samsung",
+    "specs": {
+      "interface": "PCIe 4.0 x4",
+      "formFactor": "M.2 2280",
+      "capacityGb": 1000,
+      "readSpeedMBps": 7000,
+      "writeSpeedMBps": 5000
+    },
+    "description": "High performance NVMe solid state drive directly connecting to motherboard PCIe lanes.",
+    "whyItMatters": "NVMe SSDs provide non-volatile storage with vastly higher IOPS and throughput than legacy spinning hard drives."
+  },
+  {
+    "id": "psu-corsair-rm850x",
+    "category": "psu",
+    "name": "Corsair RM850x 850W 80+ Gold Fully Modular",
+    "brand": "Corsair",
+    "specs": {
+      "wattage": 850,
+      "efficiency": "80 Plus Gold",
+      "modular": "Fully Modular",
+      "pcieConnectors": 4,
+      "epsConnectors": 2,
+      "sataConnectors": 10
+    },
+    "description": "Fully modular power supply delivering clean continuous power with low electrical ripple and high efficiency.",
+    "whyItMatters": "Converts wall AC electricity to DC voltages (12V, 5V, 3.3V). Inadequate wattage or unstable ripple causes sudden shutdowns and data corruption."
+  },
+  {
+    "id": "gpu-nvidia-rtx4070",
+    "category": "gpu",
+    "name": "NVIDIA GeForce RTX 4070 12GB",
+    "brand": "NVIDIA",
+    "specs": {
+      "vramGb": 12,
+      "vramType": "GDDR6X",
+      "tdpWatts": 200,
+      "lengthMm": 242,
+      "slotWidth": 2,
+      "powerConnector": "16-pin 12VHPWR"
+    },
+    "description": "Ada Lovelace architecture graphics processor with dedicated ray-tracing and tensor computing cores.",
+    "whyItMatters": "Renders visual frames and executes massive parallel matrix operations. Requires dedicated PCIe slot and supplemental PSU power cable."
+  },
+  {
+    "id": "cooler-peerless-assassin-120",
+    "category": "cooler",
+    "name": "Thermalright Peerless Assassin 120 SE",
+    "brand": "Thermalright",
+    "specs": {
+      "type": "Air Cooler",
+      "supportedSockets": "LGA1700,AM5,AM4",
+      "maxTdpWatts": 245,
+      "fanCount": 2,
+      "heightMm": 155
+    },
+    "description": "Dual-tower 6-heatpipe air cooler with dual 120mm PWM fans.",
+    "whyItMatters": "Removes concentrated thermal energy from the CPU die to prevent catastrophic overheating and thermal throttling."
+  },
+  {
+    "id": "paste-arctic-mx4",
+    "category": "thermal_paste",
+    "name": "Arctic MX-4 (4g)",
+    "brand": "Arctic",
+    "specs": {
+      "thermalConductivity": "8.5 W/mK",
+      "viscosity": "870 poise",
+      "electricallyConductive": false
+    },
+    "description": "High performance carbon micro-particle thermal compound.",
+    "whyItMatters": "Fills microscopic air voids between the CPU integrated heat spreader and cooler baseplate."
+  },
+  {
+    "id": "cabinet-fractal-pop-air",
+    "category": "cabinet",
+    "name": "Fractal Design Pop Air RGB",
+    "brand": "Fractal Design",
+    "specs": {
+      "formFactorSupport": "ATX, Micro-ATX, Mini-ITX",
+      "maxGpuLengthMm": 405,
+      "maxCoolerHeightMm": 170,
+      "preinstalledFans": 3,
+      "driveBays": "2x 3.5\", 4x 2.5\""
+    },
+    "description": "Mid-tower ATX enclosure with high airflow mesh front panel and tempered glass side panel.",
+    "whyItMatters": "Chassis houses, grounds, protects, and directs convective airflow over all internal computer components."
+  }
+]

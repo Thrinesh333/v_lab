@@ -1,0 +1,128 @@
+// Prisma schema for Virtual Laboratory for Computer Hardware Assembly
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String                 @id @default(cuid())
+  email                 String                 @unique
+  passwordHash          String
+  name                  String
+  role                  String                 @default("student") // "student" | "teacher"
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
+  sessions              Session[]
+  buildAttempts         BuildAttempt[]
+  events                Event[]
+  quizAttempts          QuizAttempt[]
+  troubleshootAttempts  TroubleshootAttempt[]
+  userBadges            UserBadge[]
+}
+
+model Session {
+  id          String   @id @default(cuid())
+  userId      String
+  token       String   @unique
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model BuildAttempt {
+  id          String    @id @default(cuid())
+  userId      String
+  mode        String    @default("free") // "guided" | "free" | "troubleshoot" | "quiz"
+  stateJson   String    // Serialized BuildState
+  status      String    @default("in_progress") // "in_progress" | "completed" | "failed"
+  score       Int?
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  userId      String?
+  sessionId   String?
+  mode        String   @default("free") // "guided" | "free" | "troubleshoot" | "quiz"
+  stepId      String?
+  type        String
+  timestamp   String
+  payloadJson String?
+  createdAt   DateTime @default(now())
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+model QuizQuestion {
+  id          String   @id @default(cuid())
+  category    String
+  prompt      String
+  optionsJson String   // JSON array of strings
+  correctIndex Int
+  explanation String
+  difficulty  String   @default("medium") // "easy" | "medium" | "hard"
+  createdAt   DateTime @default(now())
+}
+
+model QuizAttempt {
+  id          String    @id @default(cuid())
+  userId      String
+  score       Int
+  answersJson String    // JSON of submitted answers
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Fault {
+  id                    String                 @id @default(cuid())
+  code                  String                 @unique
+  title                 String
+  description           String
+  symptomsJson          String                 // JSON array of strings
+  solution              String
+  createdAt             DateTime               @default(now())
+  troubleshootAttempts  TroubleshootAttempt[]
+}
+
+model TroubleshootAttempt {
+  id          String    @id @default(cuid())
+  userId      String
+  faultId     String
+  resolved    Boolean   @default(false)
+  actionsJson String    // JSON array of actions attempted
+  score       Int?
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fault       Fault     @relation(fields: [faultId], references: [id], onDelete: Cascade)
+}
+
+model Badge {
+  id           String      @id @default(cuid())
+  code         String      @unique
+  name         String
+  description  String
+  icon         String
+  criteriaJson String?
+  createdAt    DateTime    @default(now())
+  userBadges   UserBadge[]
+}
+
+model UserBadge {
+  id        String   @id @default(cuid())
+  userId    String
+  badgeId   String
+  awardedAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge     Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, badgeId])
+}
